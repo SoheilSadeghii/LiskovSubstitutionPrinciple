@@ -15,9 +15,6 @@ namespace LiskovSubstitutionPrinciple
 
             array.Add(2); // Throw Exeption
             list.Add(3); // Work
-
-            var x = array.Count;
-            var y = list.Count;
         }
     }
 
