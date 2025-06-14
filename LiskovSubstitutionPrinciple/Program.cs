@@ -11,36 +11,60 @@ namespace LiskovSubstitutionPrinciple
         static void Main(string[] args)
         {
             CollectionBase array = new Array();
-            CollectionBase list =new List();
+            IList list = new List();
 
-            array.Add(2); // Throw Exeption
+            //array.Add(2); // Throw Exeption
             list.Add(3); // Work
         }
+    }
+
+    public interface IList
+    {
+        void Add(object item);
     }
 
     public class CollectionBase
     {
         public int Count { get; set; }
-        public virtual void Add(object item)
-        {
-
-        }
-
     }
 
     public class Array : CollectionBase
     {
-        public override void Add(object item) 
-        {
 
-        }
     }
 
-    public class List : CollectionBase
+    public class List : CollectionBase, IList
     {
-        public override void Add(object item) 
+        public void Add(object item)
         {
-
+            throw new NotImplementedException();
         }
     }
+
+
+    //    public class CollectionBase
+    //    {
+    //        public int Count { get; set; }
+    //        public virtual void Add(object item)
+    //        {
+
+    //        }
+
+    //    }
+
+    //    public class Array : CollectionBase
+    //    {
+    //        public override void Add(object item) 
+    //        {
+
+    //        }
+    //    }
+
+    //    public class List : CollectionBase
+    //    {
+    //        public override void Add(object item) 
+    //        {
+
+    //        }
+    //    }
 }
